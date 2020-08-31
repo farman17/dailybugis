@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<style>
+			div{
+				width: 500px;
+			}
+			a{
+				width: 200px;
+				background: red;
+				padding:10px;
+				margin-top: 20px;
+				text-decoration: none;
+				color: white;
+			}
+			a:hover{
+				background: #ccc;
+				color: black;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Isi dari postingan</h1>
+		<div>
+		<?php  
+			include "koneksi.php";
+			$id = $_GET["id"];
+			$query = mysqli_query($conn,"SELECT * FROM artikel WHERE id='$id'");
+			while ($row=mysqli_fetch_array($query)) {				
+				echo $row["isi"];		
+			}
+		?>
+		</div>
+ 
+	</body>
+</html>
